@@ -1,0 +1,40 @@
+{
+    "name": "dgc-tee-scraper",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "private": true,
+    "devDependencies": {
+        "@types/qs": "^6.9.1",
+        "@typescript-eslint/eslint-plugin": "^1.10.2",
+        "@typescript-eslint/parser": "^1.10.2",
+        "babel-loader": "^8.0.6",
+        "eslint": "6.6.0",
+        "eslint-config-airbnb": "^17.1.0",
+        "eslint-config-prettier": "^4.3.0",
+        "eslint-config-react": "^1.1.7",
+        "eslint-plugin-cypress": "^2.6.1",
+        "eslint-plugin-import": "^2.18.2",
+        "eslint-plugin-jsx-a11y": "^6.2.3",
+        "eslint-plugin-prettier": "^3.1.0",
+        "eslint-plugin-react": "^7.14.3",
+        "husky": "^2.4.1",
+        "lerna": "^3.13.1",
+        "prettier": "^1.19.1",
+        "rimraf": "^2.6.3",
+        "typescript": "3.9.3"
+    },
+    "lint-staged": {
+        "**/*.{js,jsx,ts,tsx,json,css}": [
+            "prettier --write",
+            "git add"
+        ]
+    },
+    "dependencies": {
+        "@types/puppeteer": "^3.0.0",
+        "jest": "^26.0.1",
+        "puppeteer": "^3.1.0",
+        "qs": "^6.9.3",
+        "ts-node": "^8.10.1"
+    }
+}
