@@ -15,7 +15,7 @@ const loginDomain = {
       await loginWindow.keyboard.type(process.env.EMAIL)
       await loginWindow.click('#Password')
       await loginWindow.keyboard.type(process.env.PASSWORD)
-      await loginWindow.click('#RememberMe')
+      // await loginWindow.click('#RememberMe')
       await loginWindow.click('#form0 > div:nth-child(8) > input')
       console.log('Completed User Login')
     } catch (loginError) {
