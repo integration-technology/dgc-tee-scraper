@@ -25,28 +25,31 @@ function parsePlayerSlot(playerSlotDiv: CheerioElement): PlayerSlot[] {
 }
 function parseTeeTime(tee: CheerioElement): TeeBooking {
   const $ = cheerio.load(tee)
-  const players: PlayerSlot[] = []
-  players: $('div.players').each((i, playersDiv) => {
-    parsePlayerSlot(playersDiv)
+  const players: any[] = []
+  $('div.players').each((i, playersDiv) => {
+    players[0] = parsePlayerSlot(playersDiv)
   })
+  const [teeDate, teeTime] = tee.attribs['data-teetime'].split(' ')
   return {
     course: 'Denham White',
-    date: '',
+    date: teeDate,
     players,
-    time: ''
+    time: teeTime
   }
 }
 const teeSheet = {
-  getTees: (teesForDayPageHTML: string) => {
+  getTees: async (teesForDayPageHTML: string): Promise<TeeBooking[]> => {
     const $ = cheerio.load(teesForDayPageHTML, {
       normalizeWhitespace: false,
       xmlMode: false,
       decodeEntities: false
     })
+    const teeBookings: TeeBooking[] = []
     $('div.tee').each((i, teeTimeDiv) => {
       const tee = parseTeeTime(teeTimeDiv)
-      console.log(tee)
+      teeBookings.push(tee)
     })
+    return teeBookings
   }
 }
 export default teeSheet
