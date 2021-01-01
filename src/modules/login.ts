@@ -20,6 +20,7 @@ const loginDomain = {
       console.log('Completed User Login')
     } catch (loginError) {
       console.log('Failed to log in', loginError)
+      throw loginError
     }
   }
 }
