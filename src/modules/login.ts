@@ -6,7 +6,7 @@ const loginDomain = {
     console.log('Start LoginUser')
     try {
       await page.goto(loginDomain.LOGIN_PAGE)
-      console.log('Got page')
+      console.log('Got login page')
       const loginWindowPromise = new Promise((x) => page.once('popup', x))
       await page.click(loginDomain.LOGIN_SELECTOR)
       const loginWindow: any = await loginWindowPromise
@@ -19,7 +19,7 @@ const loginDomain = {
       await loginWindow.click('#form0 > div:nth-child(8) > input')
       console.log('Completed User Login')
     } catch (loginError) {
-      console.log('Failed to log in')
+      console.log('Failed to log in', loginError)
     }
   }
 }

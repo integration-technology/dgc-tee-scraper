@@ -1,7 +1,7 @@
 import * as cheerio from 'cheerio'
 
 export interface TeeBooking {
-  course: string
+  course?: string
   date: string
   time: string
   players: PlayerSlot[]
@@ -31,7 +31,6 @@ function parseTeeTime(tee: CheerioElement): TeeBooking {
   })
   const [teeDate, teeTime] = tee.attribs['data-teetime'].split(' ')
   return {
-    course: 'Denham White',
     date: teeDate,
     players,
     time: teeTime
@@ -39,7 +38,7 @@ function parseTeeTime(tee: CheerioElement): TeeBooking {
 }
 const teeSheet = {
   getTees: async (teesForDayPageHTML: string): Promise<TeeBooking[]> => {
-    const $ = cheerio.load(teesForDayPageHTML, {
+    const $ = await cheerio.load(teesForDayPageHTML, {
       normalizeWhitespace: false,
       xmlMode: false,
       decodeEntities: false

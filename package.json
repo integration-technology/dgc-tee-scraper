@@ -34,6 +34,7 @@
         "@types/cheerio": "^0.22.18",
         "@types/puppeteer": "^3.0.0",
         "cheerio": "^1.0.0-rc.3",
+        "date-fns": "^2.16.1",
         "jest": "^26.0.1",
         "puppeteer": "^3.1.0",
         "qs": "^6.9.4",
